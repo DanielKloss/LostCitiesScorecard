@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>RULES</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-slides>
+        <ion-slide *ngFor="let rulesCategory of rulesCategories; let isLast = last;">
+            <ion-list>
+                <ion-list-header>
+                    {{rulesCategory.header}}
+                    <div>
+                        <ion-label style="font-size:small; opacity:0.5">{{rulesCategory.nextRulesCategory}}</ion-label>
+                        <ion-icon *ngIf="!isLast" style="vertical-align:middle; opacity:0.5" name="arrow-dropright"></ion-icon>
+                    </div>
+                </ion-list-header>
+                <ion-item lines="inset" *ngFor="let rule of rulesCategory.instructions">
+                    <ion-icon name="compass" style="margin-right:10px"></ion-icon>
+                    <ion-label text-wrap>{{rule}}</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

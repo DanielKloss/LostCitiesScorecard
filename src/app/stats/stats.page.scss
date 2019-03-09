@@ -1,0 +1,25 @@
+.not-first {
+    margin-left: 5px !important;
+}
+
+ion-grid {
+    width: 100%;
+}
+
+.player-label {
+    font-size: 12px;
+}
+
+.number-label {
+    font-weight: bold;
+}
+
+.player-grid {
+    font-size: 12px;
+}
+
+.table-header {
+    font-weight: bold;
+    background-color: var(--ion-color-secondary);
+    color: white;
+}

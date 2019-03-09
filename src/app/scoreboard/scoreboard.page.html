@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            ROUND {{round}} of {{gameType ? 3 : 1}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+    <ion-slides>
+        <ion-slide *ngFor="let player of players; let isLast = last; let isFirst = first">
+            <ion-grid style="width: 100%">
+                <ion-row style="justify-content:center; display:flex!important; align-items:center!important">
+                    <ion-col size="9">
+                        <ion-label style="font-size:x-large">{{player.name}}</ion-label>
+                    </ion-col>
+                    <ion-col size="3" *ngIf="isFirst">
+                        <ion-label style="font-size:small; opacity:0.5">Swipe</ion-label>
+                        <ion-icon style="vertical-align:middle; opacity:0.5" name="arrow-dropright"></ion-icon>
+                    </ion-col>
+                    <ion-col size="3" *ngIf="isLast">
+                        <ion-icon style="vertical-align:middle; opacity:0.5" name="arrow-dropleft"></ion-icon>
+                        <ion-label style="font-size:small; opacity:0.5">Swipe</ion-label>
+                    </ion-col>
+                </ion-row>
+                <ion-row style="justify-content:center; display:flex!important; align-items:center!important">
+                    <ion-col *ngFor="let expedition of player.expeditions" size="2.4">
+                        <ion-list [ngClass]="expedition.name" lines="none" inset="false">
+                            <ion-item style="--padding-start:0px; --inner-padding-end:0px;">
+                                <ion-button class="flat-button" [ngClass]="expedition.name" expand="full"
+                                            (click)="changeWager(expedition)">
+                                    <ion-label *ngIf="expedition.wagers.length == 0" style="color:grey; font-size:20px">x</ion-label>
+                                    <ion-icon src="/assets/icon/handshake.svg" *ngFor="let wager of expedition.wagers"></ion-icon>
+                                </ion-button>
+                            </ion-item>
+                            <ion-item *ngFor="let expeditionNumber of expedition.expeditionNumbers" style="--padding-start:0px; --inner-padding-end:0px;">
+                                <ion-button class="flat-button" [ngClass]="expedition.name" [attr.disabled]="expeditionNumber.gone" [class.pressed]="expeditionNumber.got" expand="full" size="medium"
+                                            (click)="updateExpeditionNumbers(expedition, expedition.name, expeditionNumber.number, player)">{{expeditionNumber.gone ? '-' : expeditionNumber.number}}</ion-button>
+                            </ion-item>
+                            <ion-item style="--padding-start:0px; --inner-padding-end:0px; border-top: 3px solid black;">
+                                <ion-label class="score-label">{{expedition.totalScore}}</ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
+
+<ion-footer class="background">
+    <ion-button *ngIf="gameType == true && round != 3" (click)="nextRound()" expand="full" color="light" margin="50">NEXT ROUND</ion-button>
+    <ion-button *ngIf="gameType == false || (gameType == true && round == 3)" (click)="endGame()" expand="full" color="primary" margin="50">END GAME</ion-button>
+</ion-footer>

@@ -1,0 +1,130 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            STATS
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="background">
+    <ion-list class="background">
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="5">
+                        <label>Total Games:</label>
+                    </ion-col>
+                    <ion-col>
+                        <label class="number-label">{{totalGames}}</label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="5">
+                        <label>Most Wins:</label>
+                    </ion-col>
+                    <ion-col>
+                        <label class="number-label">{{mostWins}}</label>
+                    </ion-col>
+                    <ion-col size="5">
+                        <label class="player-label" *ngFor="let player of playersMostWins; let isLast = last; let isFirst = first" [class.not-first]="!isFirst">{{isFirst ? '(' : ''}}{{player}}{{isLast ? ')' : ', '}}</label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="5">
+                        <label>Most Losses:</label>
+                    </ion-col>
+                    <ion-col>
+                        <label class="number-label">{{mostLosses}}</label>
+                    </ion-col>
+                    <ion-col size="5">
+                        <label class="player-label" *ngFor="let player of playersMostLosses; let isLast = last; let isFirst = first" [class.not-first]="!isFirst">{{isFirst ? '(' : ''}}{{player}}{{isLast ? ')' : ', '}}</label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="5">
+                        <label>Best Score:</label>
+                    </ion-col>
+                    <ion-col>
+                        <label class="number-label">{{bestScore}}</label>
+                    </ion-col>
+                    <ion-col size="5">
+                        <label class="player-label" *ngFor="let player of playersBestScore; let isLast = last; let isFirst = first" [class.not-first]="!isFirst">{{isFirst ? '(' : ''}}{{player}}{{isLast ? ')' : ', '}}</label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="5">
+                        <label>Worst Score:</label>
+                    </ion-col>
+                    <ion-col>
+                        <label class="number-label">{{worstScore}}</label>
+                    </ion-col>
+                    <ion-col size="5">
+                        <label class="player-label" *ngFor="let player of playersWorstScore; let isLast = last; let isFirst = first" [class.not-first]="!isFirst">{{isFirst ? '(' : ''}}{{player}}{{isLast ? ')' : ', '}}</label>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
+
+    <ion-grid class="player-grid">
+        <ion-row class="table-header">
+            <ion-col size="2.5">
+                <label>Player</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>Played</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>Won</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>Lost</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>Win %</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>Average</label>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let player of players">
+            <ion-col size="2.5">
+                <label>{{player.name}}</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>{{player.played}}</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>{{player.wins}}</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>{{player.losses}}</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>{{player.winPercent | number: '1.0-0'}} %</label>
+            </ion-col>
+            <ion-col>
+                <label float-right>{{player.averageScore | number: '1.0-0'}}</label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

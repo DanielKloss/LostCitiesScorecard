@@ -1,0 +1,53 @@
+.flat-button {
+    --box-shadow: none;
+    --color: black;
+    font-weight: bold;
+    width: 100%;
+}
+
+button,
+span {
+    position: relative;
+    top: 50%;
+    float: left;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.score-label {
+    width: 100%;
+    font-weight: bolder;
+    font-size:larger;
+    text-align: center;
+}
+
+.red {
+    --background: #CD3029;
+    background-color: #CD3029;
+}
+
+.green {
+    --background: #C4D740;
+    background-color: #C4D740;
+}
+
+.white {
+    --background: #F3F2F7;
+    background-color: #F3F2F7;
+}
+
+.blue {
+    --background: #86AED1;
+    background-color: #86AED1;
+}
+
+.yellow {
+    --background: #F3DB07;
+    background-color: #F3DB07;
+}
+
+.pressed {
+    filter: brightness(1.5);
+}
+

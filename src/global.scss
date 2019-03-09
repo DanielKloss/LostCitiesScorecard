@@ -1,0 +1,35 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+@font-face {
+    font-family: 'Soup of Justice';
+    src: url('assets/fonts/soupofjustice.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+ion-header > ion-toolbar {
+    --background: var(--ion-color-secondary);
+}
+
+ion-header > ion-toolbar > ion-title {
+    --color: white;
+}
+
+ion-back-button {
+    --color: white !important;
+}
+
+.tab-selected {
+    color: var(--ion-color-secondary);
+}
+

@@ -1,0 +1,18 @@
+<ion-content padding>
+    <div class="split mainMenu-area">
+        <ion-grid class="mainMenu">
+            <ion-row class="mainMenuRow" *ngFor="let menuItem of menuItems">
+                <ion-col>
+                    <ion-button class="mainMenu-button" (click)="openPage(menuItem)" expand="full" size="large">{{menuItem}}</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <div class="split title-area">
+        <div class="center">
+            <label class="title">LOST CITIES</label>
+            <img class="background-logo" src="../../assets/img/compassIcon.png" />
+        </div>
+    </div>
+</ion-content>

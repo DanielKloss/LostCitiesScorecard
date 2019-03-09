@@ -1,0 +1,51 @@
+.background-logo {
+    height: auto;
+    width: 100px;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.title-area {
+    background-image: linear-gradient(to right, var(--ion-color-secondary), #242856);
+    left: 0;
+}
+
+.title {
+    left: 0;
+    color: white;
+    font-size: 60px;
+    font-family: 'Soup of Justice'
+}
+
+.mainMenu-area {
+    right: 0;
+}
+
+.mainMenu {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    left: -10px;
+}
+
+.mainMenu-button {
+    --box-shadow: none !important;
+    --background: none !important;
+    background-image: linear-gradient(to right, #3e4372, var(--ion-color-secondary)) !important;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

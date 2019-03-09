@@ -1,0 +1,61 @@
+<ion-content padding>
+    <div class="split winner-area">
+        <ion-grid class="center winner" *ngIf="winners.length == 1">
+            <ion-row>
+                <ion-col>
+                    <ion-icon name="trophy"></ion-icon>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-label>{{winners[0].playerName}}</ion-label>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-label>{{winners[0].totalScore}}</ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid class="center winner-draw" *ngIf="winners.length > 1">
+            <ion-row *ngFor="let winner of winners">
+                <ion-col style="font-family:Soup of Justice; font-size:x-large;">
+                    <ion-icon name="trophy"></ion-icon>
+                </ion-col>
+                <ion-col style="text-align:start; font-family:Soup of Justice; font-size:x-large;">
+                    <ion-label>{{winner.playerName}}</ion-label>
+                </ion-col>
+                <ion-col size="3" style="text-align:start; font-family:Soup of Justice; font-size:x-large;">
+                    <ion-label>{{winner.totalScore}}</ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <div class="split runnersUp-area">
+        <ion-grid class="center runnersUp">
+            <ion-row *ngFor="let game of games; let i = index">
+                <ion-col *ngIf="i == 0" style="font-family:Soup of Justice; font-size:x-large;">
+                    <ion-label>{{i+2}}nd</ion-label>
+                </ion-col>
+                <ion-col *ngIf="i == 1" style="font-family:Soup of Justice; font-size:x-large;">
+                    <ion-label *ngIf="isFirst == false">{{i+2}}rd</ion-label>
+                </ion-col>
+                <ion-col *ngIf="i != 0 && i != 1" style="font-family:Soup of Justice; font-size:x-large;">
+                    <ion-label *ngIf="isFirst == false">{{i+2}}th</ion-label>
+                </ion-col>
+                <ion-col style="text-align:start;">
+                    <ion-label style="font-weight:bold">{{game.playerName}}</ion-label>
+                </ion-col>
+                <ion-col size="3" style="text-align:start;">
+                    <ion-label style="font-weight:bold">{{game.totalScore}}</ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-label class="dateTime">{{dateTime | date:'d MMM yyyy | HH:mm'}}</ion-label>
+    <ion-button (click)="backToMainMenu()" expand="full" color="primary" margin="50">CLOSE</ion-button>
+</ion-footer>

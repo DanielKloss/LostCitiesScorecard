@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>ABOUT</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list lines="none">
+        <ion-item>
+            <ion-thumbnail>
+                <img src="assets/img/compassIcon.png" />
+            </ion-thumbnail>
+            <ion-label>
+                <h2>LOST CITIES</h2>
+                <p>{{versionNumber}}</p>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label text-wrap text-center>Lost Cities makes keeping track of player scores for 'Lost Cities' quick and easy. Lost Cities is a card game designed by Reiner Knizia.</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label text-wrap text-center>Thank you for downloading my app, I hope you find it useful and enjoyable. Please let me know what you think, or suggest future improvements, by clicking the buttons below.</ion-label>
+        </ion-item>
+        <ion-button expand="full" size="large" color="light" margin="50" (click)="moreInfo()">More Info</ion-button>
+        <ion-button *ngIf="platformIsBrowser == false" expand="full" size="large" color="light" margin="50" (click)="rateAndReview()">Rate and Review</ion-button>
+    </ion-list>
+</ion-content>

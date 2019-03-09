@@ -1,0 +1,7 @@
+{
+  "name": "LostCities",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

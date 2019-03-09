@@ -1,0 +1,61 @@
+.split {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.winner-area {
+    background-image: linear-gradient(to bottom, var(--ion-color-secondary), #242856);
+    left: 0;
+    height: 55%;
+    width: 100%;
+}
+
+.winner {
+    left: 0;
+    color: white;
+    font-size: 60px;
+    font-family: 'Soup of Justice'
+}
+
+.winner-draw {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    font-size: large;
+    color: white;
+}
+
+.runnersUp-area {
+    left: 0;
+    top: 55%;
+    height: 50%;
+    width: 100%;
+}
+
+.runnersUp {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    font-size: large;
+    color: var(--ion-color-secondary);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.dateTime {
+    font-size: large;
+    width: 50%;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+}
